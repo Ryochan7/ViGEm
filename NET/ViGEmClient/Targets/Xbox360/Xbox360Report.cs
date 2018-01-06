@@ -36,17 +36,17 @@ namespace Nefarius.ViGEm.Client.Targets.Xbox360
     {
         public ushort Buttons { get; private set; }
 
-        public byte LeftTrigger { get; private set; }
+        public byte LeftTrigger { get; set; }
 
-        public byte RightTrigger { get; private set; }
+        public byte RightTrigger { get; set; }
 
-        public short LeftThumbX { get; private set; }
+        public short LeftThumbX { get; set; }
 
-        public short LeftThumbY { get; private set; }
+        public short LeftThumbY { get; set; }
 
-        public short RightThumbX { get; private set; }
+        public short RightThumbX { get; set; }
 
-        public short RightThumbY { get; private set; }
+        public short RightThumbY { get; set; }
 
         public void SetButtons(params Xbox360Buttons[] buttons)
         {
@@ -66,6 +66,11 @@ namespace Nefarius.ViGEm.Client.Targets.Xbox360
             {
                 Buttons &= (ushort)~button;
             }
+        }
+
+        public void SetButtons(Xbox360Buttons buttons)
+        {
+            Buttons = (ushort)buttons;
         }
 
         public void SetAxis(Xbox360Axes axis, short value)
